@@ -1,17 +1,18 @@
-
+<% div %>
   <p>
     <strong>Title:</strong>
     <%= article.title %>
   </p>
 
   <p>
-    <strong>Article:</strong>
+    <strong>Body:</strong>
     <%= article.body %>
   </p>
 
   <p>
-    <%= link_to "Destroy Comment", [article.user, article], data: {
+    <%= link_to "Destroy Article", [article.user, article], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>
   </p>
+  <% end %>

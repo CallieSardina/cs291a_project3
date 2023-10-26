@@ -7,21 +7,23 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def new
-    @article = Article.new
-  end
+  #def new
+  #  @article = Article.new
+  #end
 
   def create
     @user = User.find(params[:user_id])
-    @user.articles.create(article_params)
-    redirect_to article_path(@user)
+    #@article = @user.articles.create(article_params)
+    @article = Article.new(article_params)
+    redirect_to user_path(@user)
     # @article = Article.new(article_params)
 
-    if @article.save
-      redirect_to @article
-    else
-      render :new, status: :unprocessable_entity
-    end
+    #if @article.save
+    #  redirect_to user_path(@user)
+    #else
+    #  redirect_to user_path(@user)
+    #  #render :index, status: :unprocessable_entity
+    #end
   end
 
   def edit
@@ -44,7 +46,7 @@ class ArticlesController < ApplicationController
     # @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to user_path(@user) status: :see_other
+    redirect_to user_path(@user), status: :see_other
   end
 
   private

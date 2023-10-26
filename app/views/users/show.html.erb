@@ -1,12 +1,12 @@
 <h1><%= @user.name %></h1>
 
-
 <ul>
   <li><%= link_to "Edit", edit_user_path(@user) %></li>
   <li><%= link_to "Destroy", user_path(@user), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
+  <li><%= link_to "Add Article", new_article_path(@user) %></li>
 </ul>
 
 <h2>Articles</h2>
